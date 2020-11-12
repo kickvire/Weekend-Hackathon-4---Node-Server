@@ -10,7 +10,7 @@ function handleServer(req, res) {
              res.statusCode=200;
              res.end("Welcome to Dominos!")
          }
-     if(req.url==='/contact')
+    else if(req.url==='/contact')
      {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -18,8 +18,11 @@ function handleServer(req, res) {
         email: 'guestcaredominos@jublfood.com'
         }))
      }
+     else{
+         res.statusCode=404;
+         res.end();
+     }
   
 }
-server.listen(3000);
-
-module.exports = httpServer;
+httpServer.listen(8081);
+module.exports =httpServer;
